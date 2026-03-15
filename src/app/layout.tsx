@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const valueSans = localFont({
-  src: "../../public/fonts/ValueSansPro-Black.woff2",
+  src: "../../public/fonts/ValueSansPro-Regular.woff",
   variable: "--font-value-sans",
 });
 
