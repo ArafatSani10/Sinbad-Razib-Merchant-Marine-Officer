@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚓ Sinbad Razib | Executive Portfolio
+**Maritime Specialist • Chief Officer • Marine Conservationist**
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Framework-Next.js%2016-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20v4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🌊 Vision
+A high-performance digital portfolio showcasing a decade of maritime excellence. Navigating the complexities of international shipping on **VLCC, Crude Oil, and Chemical tankers**, this project reflects professional expertise, operational safety, and a deep commitment to ocean conservation.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🏗️ Engineering Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The platform is engineered for speed, responsiveness, and a premium user experience, utilizing a cutting-edge technical stack:
 
-## Learn More
+* **Next.js 16 (Turbopack):** Leveraging the latest App Router and lightning-fast build cycles.
+* **Tailwind CSS v4:** Implementation of a bespoke "Deep Ocean" design system.
+* **Value Sans Pro:** A premium typography suite for professional clarity.
+* **Framer Motion:** Subtle, fluid animations reflecting the rhythmic nature of the sea.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🚢 Maritime Milestones
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Focused on high-stakes international maritime operations, the portfolio highlights:
 
-## Deploy on Vercel
+* **Strategic Navigation:** Extensive experience as a **Chief Officer** across global routes.
+* **Vessel Expertise:** Specialized in **VLCC & Aframax** operations, including 3x Dry-Docking leadership in Dubai and China.
+* **Safety & Compliance:** Expertise in Tanker Cargo Operations, Bridge Resource Management (BRM), and Maritime Safety.
+* **Impact:** Founder of **Marine Animal Care**, an initiative dedicated to marine wildlife protection and ocean awareness.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📂 Repository Anatomy
+
+```text
+├── public/fonts      # Premium Typography (Value Sans Pro)
+├── src/app           # Core Application Logic
+│   ├── about         # Professional Journey & Experience
+│   ├── contact       # Secure Communication Channel
+│   └── globals.css   # Tailored Design Tokens (V4)
+└── components/       # Reusable UI Architecture
