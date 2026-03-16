@@ -120,7 +120,7 @@ const Footer = () => {
                                     href="https://wa.me/yournumber"
                                     className="text-slate-400 text-sm hover:text-cyan-400 transition-colors"
                                 >
-                                    +880 1XXX-XXXXXX
+                                    +880 1727-835974
                                 </Link>
                             </li>
                             <li className="flex items-center gap-3 group">

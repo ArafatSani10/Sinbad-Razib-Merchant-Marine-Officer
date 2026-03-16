@@ -29,13 +29,13 @@ export default function ContactPage() {
       {/* HERO */}
       <section className="py-28 border-b border-white/10 relative">
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.18),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_60%)]" />
 
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="max-w-6xl mx-auto px-6 text-center relative"
+          className="max-w-7xl mx-auto px-6 text-center relative"
         >
           <motion.h1
             variants={item}
@@ -58,14 +58,14 @@ export default function ContactPage() {
       {/* CONTACT CARDS */}
       <section className="py-24">
 
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* PHONE */}
           <a
             href="tel:+8801727835974"
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)] transition"
+            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 "
           >
-            <FaPhoneAlt className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition"/>
+            <FaPhoneAlt className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition" />
             <h3 className="font-semibold mb-1">Phone</h3>
             <p className="text-slate-300 text-sm">
               +880 1727-835974
@@ -78,7 +78,7 @@ export default function ContactPage() {
             target="_blank"
             className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-green-400/60 hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] transition"
           >
-            <FaWhatsapp className="text-green-400 text-3xl mx-auto mb-4 group-hover:scale-110 transition"/>
+            <FaWhatsapp className="text-green-400 text-3xl mx-auto mb-4 group-hover:scale-110 transition" />
             <h3 className="font-semibold mb-1">WhatsApp</h3>
             <p className="text-slate-300 text-sm">
               Chat on WhatsApp
@@ -88,9 +88,9 @@ export default function ContactPage() {
           {/* EMAIL */}
           <a
             href="mailto:director@marineanimalcare.org"
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)] transition"
+            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 "
           >
-            <FaEnvelope className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition"/>
+            <FaEnvelope className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition" />
             <h3 className="font-semibold mb-1">Email</h3>
             <p className="text-slate-300 text-sm break-all">
               director@marineanimalcare.org
@@ -99,9 +99,9 @@ export default function ContactPage() {
 
           {/* LOCATION */}
           <div
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)] transition"
+            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 "
           >
-            <FaMapMarkerAlt className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition"/>
+            <FaMapMarkerAlt className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition" />
             <h3 className="font-semibold mb-1">Location</h3>
             <p className="text-slate-300 text-sm">
               Dhaka, Bangladesh
@@ -145,7 +145,7 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="w-full py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold rounded-lg hover:scale-[1.02] transition"
+                className="w-full py-3 bg-linear-to-r from-cyan-400 to-blue-500 text-black font-semibold rounded-lg hover:scale-[1.02] transition"
               >
                 Send Message
               </button>
