@@ -44,35 +44,43 @@ const Footer = () => {
                                 Navigating Global Waters with Professional Maritime Excellence since 2010.
                             </p>
 
-                            <div className="flex items-center gap-3 pt-3">
-                                <Link
-                                    href="#"
-                                    className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-slate-400 hover:bg-cyan-400 hover:text-[#000C1D] hover:border-cyan-400 transition-all duration-300"
-                                    aria-label="LinkedIn"
+                            <div className="flex items-center gap-4 pt-4">
+                                {/* Facebook */}
+                                <a
+                                    href="https://www.facebook.com/sinbad.razib"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-cyan-500 hover:text-[#000C1D] hover:border-cyan-500 transition-all duration-500 ease-in-out shadow-lg hover:shadow-cyan-500/20"
+                                    aria-label="Facebook"
                                 >
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
                                     </svg>
-                                </Link>
-                                <Link
-                                    href="#"
-                                    className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-slate-400 hover:bg-cyan-400 hover:text-[#000C1D] hover:border-cyan-400 transition-all duration-300"
+                                </a>
+
+                                {/* WhatsApp */}
+                                <a
+                                    href="https://wa.me/8801727835974"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-green-500 hover:text-white hover:border-green-500 transition-all duration-500 ease-in-out shadow-lg hover:shadow-green-500/20"
                                     aria-label="WhatsApp"
                                 >
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                                        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.123 1.521 5.854L.529 23.22c-.094.364.232.69.596.596l5.366-1.005C8.12 23.497 10.016 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.906 0-3.73-.513-5.3-1.418l-.384-.229-3.979.746.752-3.977-.218-.391A9.944 9.944 0 0 1 2 12c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10z" />
+                                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 2.13.66 4.105 1.79 5.73L2.53 21.47a.5.5 0 00.61.61l3.74-1.26A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.97 7.97 0 01-4.22-1.21.5.5 0 00-.47-.04l-2.6.87.87-2.6a.5.5 0 00-.04-.47A7.965 7.965 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" />
                                     </svg>
-                                </Link>
-                                <Link
-                                    href="#"
-                                    className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-slate-400 hover:bg-cyan-400 hover:text-[#000C1D] hover:border-cyan-400 transition-all duration-300"
+                                </a>
+
+                                {/* Email */}
+                                <a
+                                    href="mailto:razib2910@gmail.com"
+                                    className="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-500 ease-in-out shadow-lg hover:shadow-orange-500/20"
                                     aria-label="Email"
                                 >
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                                     </svg>
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -117,7 +125,7 @@ const Footer = () => {
                                     </svg>
                                 </div>
                                 <Link
-                                    href="https://wa.me/yournumber"
+                                    href="https://wa.me/8801727835974"
                                     className="text-slate-400 text-sm hover:text-cyan-400 transition-colors"
                                 >
                                     +880 1727-835974

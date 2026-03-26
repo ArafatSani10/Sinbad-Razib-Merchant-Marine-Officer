@@ -64,9 +64,19 @@ const Hero = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link
+                    {/* <Link
                         href="/cv.pdf"
                         className="w-full sm:w-auto px-10 py-3.5 bg-cyan-500 text-[#000C1D] text-sm  uppercase rounded-sm transition-all hover:bg-cyan-400 active:scale-95"
+                    >
+                        Download CV
+                    </Link> */}
+
+                    <Link
+                        href="/cv/razibul islam cv (1).pdf" 
+                        download="Razibul_Islam_CV.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto px-10 py-3.5 bg-cyan-500 text-[#000C1D] text-sm uppercase rounded-sm transition-all hover:bg-cyan-400 active:scale-95"
                     >
                         Download CV
                     </Link>
