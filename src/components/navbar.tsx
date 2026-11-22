@@ -1,139 +1,71 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { site } from "@/lib/site";
 
-const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
+const links = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+];
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 15);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+export default function Navbar() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setIsOpen(false);
-    }, [pathname]);
+  if (pathname.startsWith("/admin")) return null;
+  const active = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
-    const navLinks = [
-        { name: "Home", href: "/" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
-    ];
+  return (
+    <header className="sticky top-0 z-40 border-b border-navy-800 bg-navy-950/95 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-5">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5" aria-label={`${site.name}, home`}>
+          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-navy-600">
+            <Image src="/assests/logo.png" alt="" fill sizes="36px" className="object-cover" />
+          </span>
+          <span className="display truncate text-xl text-fog-50">Sinbad <span className="text-brass-400">Razib</span></span>
+        </Link>
 
-    return (
-        <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
-                    ? "py-2 bg-[#000C1D]/90 backdrop-blur-xl border-b border-white/5"
-                    : "py-4 bg-transparent"
-                }`}
-        >
-            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between relative">
-
-                {/* Left: Logo Section */}
-                <Link href="/" className="flex items-center gap-2 group flex-1">
-                    <div className="w-9 h-9 relative rounded-sm border border-white/10 overflow-hidden group-hover:border-cyan-500/40 transition-all duration-500 bg-white/5">
-                        <Image
-                            src="/assests/logo.png"
-                            alt="S Logo"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                    <div className="flex flex-col leading-none">
-                        <span className="text-base  text-white">
-                            SINBAD <span className="text-cyan-400 not-italic">RAZIB</span>
-                        </span>
-                        <span className="text-[9px] mt-1 text-slate-500 uppercase font-semibold">
-                            Merchant Marine
-                        </span>
-                    </div>
-                </Link>
-
-                {/* Center: Nav Items */}
-                <div className="hidden md:flex items-center gap-1 justify-center">
-                    {navLinks.map((link) => {
-                        const isActive = pathname === link.href;
-                        return (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={`px-5 py-1.5 text-xs uppercase transition-all duration-300 rounded-sm border ${isActive
-                                        ? "bg-cyan-500/10 backdrop-blur-md border-cyan-500/30 text-cyan-400"
-                                        : "bg-transparent border-transparent text-slate-400 hover:text-white"
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        );
-                    })}
-                </div>
-
-                {/* Right: Button Section */}
-                <div className="hidden md:flex flex-1 justify-end">
-                    <Link
-                        href="https://marineanimalcare.org"
-                        target="_blank"
-                        className="px-5 py-2 border border-cyan-500/20 text-cyan-400 text-xs uppercase  rounded-sm transition-all hover:bg-cyan-500 hover:text-[#000C1D]"
-                    >
-                        Marine Care
-                    </Link>
-                </div>
-
-                {/* Mobile: Toggle Button */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-1.5 focus:outline-none"
-                >
-                    <span className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`} />
-                    <span className={`h-0.5 bg-white transition-all duration-200 ${isOpen ? "opacity-0" : "w-4"}`} />
-                    <span className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "w-6 -rotate-45 -translate-y-1.5" : "w-5"}`} />
-                </button>
-
-                {/* Mobile: Pop-up Menu */}
-                <div
-                    className={`absolute top-[120%] right-4 w-64 bg-[#001529]/95 border border-white/10 rounded-sm p-1 transition-all duration-500 origin-top-right backdrop-blur-3xl ${isOpen
-                            ? "opacity-100 scale-100 translate-y-0"
-                            : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
-                        }`}
-                >
-                    <div className="flex flex-col gap-1">
-                        {navLinks.map((link) => {
-                            const isActive = pathname === link.href;
-                            return (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className={`px-3 py-3 rounded-sm text-sm uppercase font-semibold transition-all ${isActive
-                                            ? "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400"
-                                            : "text-slate-400 hover:bg-white/5 hover:text-white"
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            );
-                        })}
-                        <div className="h-1 bg-white/5 my-1" />
-                        <Link
-                            href="https://marineanimalcare.org"
-                            target="_blank"
-                            className="px-5 py-2 border border-cyan-500/20 text-cyan-400 text-xs uppercase font-semibold rounded-sm transition-all hover:bg-cyan-500 hover:text-[#000C1D]"
-                        >
-                            Marine Care
-                        </Link>
-                    </div>
-                </div>
-            </div>
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} aria-current={active(l.href) ? "page" : undefined}
+              className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${active(l.href) ? "bg-navy-800 text-brass-300" : "text-navy-300 hover:text-fog-50"}`}>
+              {l.name}
+            </Link>
+          ))}
+          <a href={site.businessSite} target="_blank" rel="noopener noreferrer"
+            className="ml-3 rounded-md border border-brass-400 px-4 py-2 text-sm font-semibold text-brass-300 transition-colors hover:bg-brass-400 hover:text-navy-950">
+            Marine Animal Care
+          </a>
         </nav>
-    );
-};
 
-export default Navbar;
+        <button type="button"
+          className="flex shrink-0 items-center gap-2 rounded-md border border-navy-600 px-3 py-2 text-sm font-semibold text-fog-50 md:hidden"
+          aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen((v) => !v)}>
+          {open ? <X size={18} /> : <Menu size={18} />}
+          {open ? "Close" : "Menu"}
+        </button>
+      </div>
+
+      {open && (
+        <nav id="mobile-menu" aria-label="Mobile" onClick={() => setOpen(false)} className="border-t border-navy-800 bg-navy-950 px-4 pb-5 sm:px-5 md:hidden">
+          <ul>
+            {links.map((l) => (
+              <li key={l.href} className="border-b border-navy-800">
+                <Link href={l.href} className={`block py-4 text-lg font-medium ${active(l.href) ? "text-brass-300" : "text-fog-50"}`}>{l.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <a href={site.businessSite} target="_blank" rel="noopener noreferrer" className="mt-4 block rounded-md border border-brass-400 py-3 text-center font-semibold text-brass-300">
+            Marine Animal Care
+          </a>
+        </nav>
+      )}
+    </header>
+  );
+}
