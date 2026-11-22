@@ -1,18 +1,117 @@
 @import "tailwindcss";
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/newsreader/index.css";
+@import "@fontsource-variable/noto-sans-bengali/index.css";
+@import "@fontsource/noto-serif-bengali/400.css";
+@import "@fontsource/noto-serif-bengali/700.css";
 
 @theme {
-  --font-sans: var(--font-value-sans);
-  
-  --color-seafoam: #22d3ee;
+  /* Hull navy, brass braid, chart-paper fog. Green and red are used once each, from the flag. */
+  --color-navy-950: #061427;
+  --color-navy-900: #0a2240;
+  --color-navy-800: #10305a;
+  --color-navy-600: #34567f;
+  --color-navy-300: #9db0c8;
+  --color-brass-300: #e0c27a;
+  --color-brass-400: #d2ae5e;
+  --color-brass-600: #8f6a22;
+  --color-fog-50: #f7f9fa;
+  --color-fog-100: #eef2f4;
+  --color-fog-200: #dde4e9;
+  --color-sea-700: #0d5e4d;
+  --color-sea-900: #08382f;
+  --color-signal: #b8352a;
+
+  --font-sans: "Archivo Variable", "Noto Sans Bengali Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader Variable", "Noto Serif Bengali", Georgia, serif;
 }
 
 :root {
-  --background: #000c1d;
-  --foreground: #ffffff;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-value-sans), ui-sans-serif, system-ui;
+  background: var(--color-fog-100);
+  color: var(--color-navy-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Condensed display face, echoing the identity card's headline type. */
+.display {
+  font-family: var(--font-sans);
+  font-stretch: 68%;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+/* Chart graticule used behind dark sections. */
+.graticule {
+  background-image:
+    linear-gradient(to right, rgb(157 176 200 / 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(157 176 200 / 0.09) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Scroll reveal: elements fade up once when they enter the viewport. */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.in { opacity: 1; transform: none; }
+
+:focus-visible {
+  outline: 2px solid var(--color-brass-400);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise > * { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hero-rise > *:nth-child(2) { animation-delay: 0.08s; }
+.hero-rise > *:nth-child(3) { animation-delay: 0.16s; }
+.hero-rise > *:nth-child(4) { animation-delay: 0.24s; }
+.hero-rise > *:nth-child(5) { animation-delay: 0.32s; }
+
+/* Long-form reading */
+.prose-log {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  line-height: 1.75;
+  color: var(--color-navy-900);
+  max-width: 68ch;
+}
+.prose-log > * + * { margin-top: 1.25em; }
+.prose-log h2 { font-family: var(--font-sans); font-weight: 700; font-size: 1.65rem; line-height: 1.2; margin-top: 2.2em; color: var(--color-navy-950); }
+.prose-log h3 { font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; line-height: 1.3; margin-top: 1.8em; color: var(--color-navy-950); }
+.prose-log a { color: var(--color-sea-700); text-decoration: underline; text-underline-offset: 3px; }
+.prose-log blockquote { border-left: 3px solid var(--color-brass-400); padding-left: 1.1em; font-style: italic; color: var(--color-navy-800); }
+.prose-log ul { list-style: disc; padding-left: 1.4em; }
+.prose-log ol { list-style: decimal; padding-left: 1.4em; }
+.prose-log li + li { margin-top: 0.4em; }
+.prose-log img { width: 100%; height: auto; border-radius: 2px; }
+.prose-log hr { border: 0; border-top: 1px solid var(--color-fog-200); margin: 2.4em 0; }
+.prose-log code { font-size: 0.9em; background: var(--color-fog-200); padding: 0.1em 0.35em; border-radius: 3px; }
+.prose-log pre { background: var(--color-navy-950); color: var(--color-fog-100); padding: 1em; overflow-x: auto; border-radius: 3px; }
+.prose-log pre code { background: none; padding: 0; }
+
+/* Editor surface in the admin */
+.ProseMirror { outline: none; min-height: 420px; }
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #8a9bb0;
+  float: left;
+  height: 0;
+  pointer-events: none;
 }

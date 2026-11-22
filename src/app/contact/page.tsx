@@ -1,163 +1,42 @@
-"use client";
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/ui";
+import { SocialRow } from "@/components/socials";
+import { site } from "@/lib/site";
+import ContactForm from "./form";
 
-import React from "react";
-import { motion } from "framer-motion";
-import {
-  FaWhatsapp,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
+export const metadata: Metadata = { title: "Contact", description: "Send a message to Sinbad Razib, or reach him by email, phone, WhatsApp and social media." };
 
 export default function ContactPage() {
+  const rows = [
+    ["Personal email", site.emailPersonal, `mailto:${site.emailPersonal}`],
+    ["Marine Animal Care email", site.emailBusiness, `mailto:${site.emailBusiness}`],
+    ["Phone", site.phone, `tel:${site.phoneHref}`],
+    ["WhatsApp", "Message on WhatsApp", site.whatsapp],
+    ["Marine Animal Care website", site.businessSite.replace("https://", ""), site.businessSite],
+  ];
   return (
-    <main className="bg-[#000C1D] min-h-screen text-white overflow-hidden">
-
-      {/* HERO */}
-      <section className="py-28 border-b border-white/10 relative">
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_60%)]" />
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="max-w-7xl mx-auto px-6 text-center relative"
-        >
-          <motion.h1
-            variants={item}
-            className="text-4xl md:text-6xl font-semibold tracking-tight"
-          >
-            Contact <span className="text-cyan-400">Us</span>
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            className="text-slate-300 mt-6 max-w-xl mx-auto text-lg"
-          >
-            Feel free to contact for collaborations, maritime inquiries,
-            or marine conservation initiatives.
-          </motion.p>
-        </motion.div>
-
-      </section>
-
-      {/* CONTACT CARDS */}
-      <section className="py-24">
-
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {/* PHONE */}
-          <a
-            href="tel:+8801727835974"
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 "
-          >
-            <FaPhoneAlt className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition" />
-            <h3 className="font-semibold mb-1">Phone</h3>
-            <p className="text-slate-300 text-sm">
-              +880 1727-835974
-            </p>
-          </a>
-
-          {/* WHATSAPP */}
-          <a
-            href="https://wa.me/8801727835974"
-            target="_blank"
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-green-400/60 hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] transition"
-          >
-            <FaWhatsapp className="text-green-400 text-3xl mx-auto mb-4 group-hover:scale-110 transition" />
-            <h3 className="font-semibold mb-1">WhatsApp</h3>
-            <p className="text-slate-300 text-sm">
-              Chat on WhatsApp
-            </p>
-          </a>
-
-          {/* EMAIL */}
-          <a
-            href="mailto:director@marineanimalcare.org"
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 "
-          >
-            <FaEnvelope className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition" />
-            <h3 className="font-semibold mb-1">Email</h3>
-            <p className="text-slate-300 text-sm break-all">
-              director@marineanimalcare.org
-            </p>
-          </a>
-
-          {/* LOCATION */}
-          <div
-            className="group bg-white/5 border border-white/10 backdrop-blur-xl p-7 rounded-xl text-center hover:border-cyan-400/60 "
-          >
-            <FaMapMarkerAlt className="text-cyan-400 text-2xl mx-auto mb-4 group-hover:scale-110 transition" />
-            <h3 className="font-semibold mb-1">Location</h3>
-            <p className="text-slate-300 text-sm">
-              Dhaka, Bangladesh
-            </p>
-          </div>
-
+    <main>
+      <PageHeader title="Contact">Press, shipping, conservation or community work. Write to me here, or use any channel below.</PageHeader>
+      <section className="mx-auto grid max-w-6xl gap-14 px-5 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-24">
+        <div>
+          <h2 className="text-2xl font-bold text-navy-950">Direct lines</h2>
+          <dl className="mt-6 divide-y divide-fog-200 border-y border-fog-200">
+            {rows.map(([k, v, h]) => (
+              <div key={k} className="py-4">
+                <dt className="text-sm text-navy-600">{k}</dt>
+                <dd><a href={h} className="text-lg font-semibold text-navy-950 underline decoration-brass-400 decoration-2 underline-offset-4 hover:text-sea-700" {...(h.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{v}</a></dd>
+              </div>
+            ))}
+            <div className="py-4"><dt className="text-sm text-navy-600">Location</dt><dd className="text-lg font-semibold text-navy-950">{site.location}</dd></div>
+          </dl>
+          <h2 className="mt-10 text-2xl font-bold text-navy-950">Find me online</h2>
+          <div className="mt-4"><SocialRow tone="light" /></div>
         </div>
-
-      </section>
-
-      {/* CONTACT FORM */}
-      <section className="pb-28">
-
-        <div className="max-w-4xl mx-auto px-6">
-
-          <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-xl p-12">
-
-            <h2 className="text-3xl font-semibold text-center mb-10">
-              Send a Message
-            </h2>
-
-            <form className="space-y-6">
-
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full bg-transparent border border-white/20 rounded-lg px-5 py-3 focus:outline-none focus:border-cyan-400 transition"
-              />
-
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full bg-transparent border border-white/20 rounded-lg px-5 py-3 focus:outline-none focus:border-cyan-400 transition"
-              />
-
-              <textarea
-                rows={5}
-                placeholder="Write your message..."
-                className="w-full bg-transparent border border-white/20 rounded-lg px-5 py-3 focus:outline-none focus:border-cyan-400 transition"
-              />
-
-              <button
-                type="submit"
-                className="w-full py-3 bg-linear-to-r from-cyan-400 to-blue-500 text-black font-semibold rounded-lg hover:scale-[1.02] transition"
-              >
-                Send Message
-              </button>
-
-            </form>
-
-          </div>
-
+        <div>
+          <h2 className="text-2xl font-bold text-navy-950">Send a message</h2>
+          <ContactForm />
         </div>
-
       </section>
-
     </main>
   );
 }

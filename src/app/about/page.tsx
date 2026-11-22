@@ -1,338 +1,92 @@
-"use client";
-
-import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { Anchor, Newspaper, Waves } from "lucide-react";
+import Reveal from "@/components/reveal";
+import { Button, SectionTitle } from "@/components/ui";
+import { site } from "@/lib/site";
+import Journey from "./journey";
 
-const skills = [
-  "Navigation",
-  "Tanker Cargo Operations",
-  "Bridge Resource Management",
-  "ECDIS Navigation",
-  "Maritime Safety",
-  "Emergency Response",
-  "Ship Security",
-];
+export const metadata: Metadata = {
+  title: "About",
+  description: "Sinbad Razib (Mia Mohammad Razibul Islam): merchant marine officer, Chief Reporter at Daily Vorer Khobor, and founder of Marine Animal Care.",
+};
 
-const certifications = [
-  "Certificate of Competency (COC II)",
-  "GMDSS",
-  "Radar Navigation",
-  "Bridge Resource Management",
-  "Advanced Fire Fighting",
-  "Tanker Fire Fighting",
-  "Medical First Aid",
-  "Ship Security Officer",
-  "ECDIS",
-  "Proficiency in Survival Craft & Rescue Boats",
+const story = [
+  { Icon: Anchor, title: "At sea", text: "I graduated from Bangladesh Marine Academy in Nautical Science and have served in several navigation ranks on crude oil tankers, chemical tankers and VLCCs across international shipping routes." },
+  { Icon: Newspaper, title: "In the press and public life", text: "I am Chief Reporter at Daily Vorer Khobor, Joint Secretary General of Zia Cyber Force, and Joint Convener of Bangladesh Jatiyotabadi Krishak Dal, Dhaka Mahanagar Dakshin." },
+  { Icon: Waves, title: "For the ocean", text: "I founded Marine Animal Care to protect marine wildlife and raise awareness about ocean conservation. I am also President of the Association of Maritime Professionals, Bangladesh." },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="bg-[#000C1D] text-white min-h-screen">
-
-      {/* HERO */}
-      <section className="py-24 border-b border-white/5">
-        <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-semibold mb-4">
-            Mia Mohammad <span className="text-cyan-400">Razibul Islam</span>
-          </h1>
-
-          <p className="text-lg text-slate-300 max-w-3xl">
-            Professionally known as <span className="text-white">Sinbad Razib</span>,
-            a Merchant Marine Officer currently serving as a Chief Officer.
-          </p>
-        </div>
-      </section>
-
-
-      {/* PROFILE + BIO */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 grid lg:grid-cols-3 gap-12">
-
-          {/* PROFILE */}
-          <div className="bg-white/5 border border-white/10 p-8 rounded-xl">
-            <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border border-cyan-400/30">
-              <Image
-                src="/assests/pic.jpg"
-                alt="profile"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <h3 className="text-center text-lg font-semibold">
-              Sinbad Razib
-            </h3>
-
-            <p className="text-center text-cyan-400 mb-4">
-              Chief Officer
-            </p>
-
-            <div className="text-sm text-slate-300 space-y-2">
-              <p>📍 Dhaka, Bangladesh</p>
-              <p>🌊 Merchant Marine Officer</p>
-              <p>⚓ 10+ Years Sea Experience</p>
-            </div>
+    <main>
+      {/* HERO: arch portrait */}
+      <section className="graticule relative overflow-hidden bg-navy-950 text-fog-50">
+        <div className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-brass-400/10 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 pt-14 md:grid-cols-[1fr_auto] md:pt-20">
+          <div className="hero-rise pb-12 md:pb-20">
+            <p className="inline-block rounded-full border border-brass-400/50 px-4 py-1.5 text-sm font-medium text-brass-300">About</p>
+            <h1 className="display mt-6 text-[clamp(2.8rem,9vw,6.4rem)]">Mia Mohammad<br /><span className="text-brass-400">Razibul Islam</span></h1>
+            <p className="mt-5 text-xl text-fog-100">Known as Sinbad Razib. Captain, Merchant Marine Officer.</p>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-navy-300">Based in {site.location}. Chief Reporter at Daily Vorer Khobor, President of the Association of Maritime Professionals, Bangladesh, and Founder and Director of Marine Animal Care.</p>
+            <div className="mt-8 flex flex-wrap gap-3"><Button href={site.cv} download>Download CV</Button><Button href="/contact" variant="line">Contact me</Button></div>
           </div>
-
-          {/* BIO */}
-          <div className="lg:col-span-2 space-y-5 text-slate-300 leading-relaxed">
-
-            <p>
-              I am Mia Mohammad Razibul Islam, professionally known as
-              <span className="text-white font-medium"> Sinbad Razib</span>,
-              a Merchant Marine Officer currently serving as a Chief Officer.
-            </p>
-
-            <p>
-              My maritime career began after graduating from
-              <span className="text-white"> Bangladesh Marine Academy</span>,
-              where I specialized in Nautical Science.
-            </p>
-
-            <p>
-              Since then, I have gained extensive sea-going experience working
-              on crude oil tankers, chemical tankers, and VLCC vessels across
-              international shipping routes.
-            </p>
-
-            <p>
-              Throughout my career, I have served in multiple navigation ranks,
-              developing strong expertise in navigation, tanker cargo
-              operations, bridge management, and maritime safety.
-            </p>
-
-            <div className="bg-cyan-400/10 border border-cyan-400/20 p-6 rounded-lg">
-              Beyond my professional maritime journey, I am also the founder of
-              Marine Animal Care, an initiative focused on protecting marine
-              wildlife and promoting ocean conservation awareness.
+          <div className="hero-rise mx-auto w-full max-w-[20rem] md:mx-0 md:w-[22rem]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] border-4 border-b-0 border-brass-400 bg-fog-50">
+              <Image src="/assests/pic.jpg" alt="Portrait of Sinbad Razib" fill priority sizes="352px" className="object-cover object-top" />
             </div>
-
           </div>
         </div>
       </section>
 
+      {/* FACTS */}
+      <section className="border-b border-fog-200 bg-white">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-5 md:grid-cols-4">
+          {[
+            ["Rank", "Captain"],
+            ["Training", "Bangladesh Marine Academy"],
+            ["Languages", "Bengali, English"],
+            ["Based in", site.location],
+          ].map(([k, v]) => (
+            <div key={k} className="py-6 pr-4"><dt className="text-sm text-navy-600">{k}</dt><dd className="mt-1 font-bold text-navy-950">{v}</dd></div>
+          ))}
+        </dl>
+      </section>
 
-      {/* SKILLS */}
-      <section className="py-16 border-t border-white/5">
-        <div className="container mx-auto px-6">
-
-          <h2 className="text-3xl font-semibold mb-10">
-            Skills
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-4">
-
-            {skills.map((skill, i) => (
-              <div
-                key={i}
-                className="bg-white/5 border border-white/10 p-4 rounded-lg"
-              >
-                {skill}
+      {/* STORY */}
+      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <Reveal><SectionTitle title="Three parts of one life" /></Reveal>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {story.map(({ Icon, title, text }, i) => (
+            <Reveal key={title} delay={i * 90}>
+              <div className="h-full rounded-xl border border-fog-200 bg-white p-7 transition-all hover:-translate-y-1 hover:border-brass-400 hover:shadow-xl hover:shadow-navy-900/10">
+                <span className="grid h-12 w-12 place-items-center rounded-lg bg-navy-900 text-brass-400"><Icon size={22} /></span>
+                <h3 className="mt-5 text-xl font-bold text-navy-950">{title}</h3>
+                <p className="mt-3 leading-relaxed text-navy-800">{text}</p>
               </div>
-            ))}
-
-          </div>
-
+            </Reveal>
+          ))}
         </div>
       </section>
 
-
-      {/* EXPERIENCE */}
-      <section className="py-20 border-t border-white/5">
-
-        <div className="container mx-auto px-6">
-
-          <h2 className="text-3xl font-semibold mb-10">
-            Professional Experience
-          </h2>
-
-
-          {/* CHIEF OFFICER */}
-          <div className="mb-10 bg-white/5 border border-white/10 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold">Chief Officer</h3>
-            <p className="text-cyan-400">MT Tiger 6 – Panama</p>
-
-            <p className="text-sm text-slate-300">
-              Company: Canday Ship Management
-            </p>
-
-            <p className="text-sm text-slate-300">
-              Type: Crude Oil Tanker
-            </p>
-
-            <p className="text-sm text-slate-400">
-              Duration: Apr 2025 – Oct 2025
-            </p>
-          </div>
-
-
-          {/* SECOND OFFICER */}
-          <div className="mb-10 bg-white/5 border border-white/10 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-3">
-              Second Officer
-            </h3>
-
-            <ul className="space-y-2 text-sm text-slate-300">
-              <li>MT Shun Tai – Liberia | Chemul Ship Management | Nov 2022 – Jul 2023</li>
-              <li>MT Beks Swan – Marshall Islands | Bernhard Schulte Ship Management | Jun 2022 – Jul 2022</li>
-              <li>MT Ocean Autumn – Singapore | Dec 2021 – May 2022</li>
-              <li>MT Phoenix Star – Thailand (VLCC) | Feb 2021 – Sept 2021</li>
-            </ul>
-          </div>
-
-
-          {/* THIRD OFFICER */}
-          <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-3">
-              Third Officer
-            </h3>
-
-            <div className="flex flex-wrap gap-3">
-              {["MT Omera Legacy","MT Omera Queen","MT Navarz","MT Queen 1"].map(v=>(
-                <span key={v} className="bg-white/10 px-4 py-2 rounded-md text-sm">
-                  {v}
-                </span>
-              ))}
-            </div>
-
-          </div>
-
+      {/* JOURNEY */}
+      <section className="bg-fog-50">
+        <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <Reveal><SectionTitle title="Background and career" sub="Choose a tab to explore." /></Reveal>
+          <div className="mt-10"><Journey /></div>
         </div>
       </section>
-
-
-      {/* EDUCATION */}
-      <section className="py-20 border-t border-white/5">
-
-        <div className="container mx-auto px-6">
-
-          <h2 className="text-3xl font-semibold mb-8">
-            Education
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-
-            <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
-              <h3>Bachelor of Maritime Science – Nautical</h3>
-              <p className="text-cyan-400 text-sm">
-                Bangladesh Marine Academy, Chittagong
-              </p>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
-              <h3>HSC – Science</h3>
-              <p className="text-cyan-400 text-sm">
-                Shailkupa Govt Degree College
-              </p>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
-              <h3>SSC – Science</h3>
-              <p className="text-cyan-400 text-sm">
-                Shailkupa Pilot High School
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* CERTIFICATIONS */}
-      <section className="py-20 border-t border-white/5">
-
-        <div className="container mx-auto px-6">
-
-          <h2 className="text-3xl font-semibold mb-8">
-            Certifications & Licenses
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-4">
-
-            {certifications.map((c,i)=>(
-              <div key={i} className="bg-white/5 border border-white/10 p-4 rounded-md text-sm">
-                {c}
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* SPECIAL EXPERIENCE */}
-      <section className="py-20 border-t border-white/5">
-
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10">
-
-          <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-3">
-              Dry Docking Experience
-            </h3>
-
-            <p className="text-slate-300">
-              Aframax Tanker – 2 Times
-            </p>
-
-            <p className="text-slate-300">
-              VLCC – 1 Time
-            </p>
-          </div>
-
-
-          <div className="bg-white/5 border border-white/10 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-3">
-              Locations
-            </h3>
-
-            <div className="flex gap-4">
-              <span className="bg-cyan-400/10 border border-cyan-400/20 px-4 py-2 rounded-md text-cyan-400">
-                Dubai
-              </span>
-
-              <span className="bg-cyan-400/10 border border-cyan-400/20 px-4 py-2 rounded-md text-cyan-400">
-                China
-              </span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
 
       {/* CTA */}
-      <section className="py-20 text-center border-t border-white/5">
-
-        <div className="max-w-4xl mx-auto px-6 bg-white/5 border border-white/10 rounded-xl p-12">
-
-          <h2 className="text-3xl font-semibold mb-4">
-            Marine <span className="text-cyan-400">Animal Care</span>
-          </h2>
-
-          <p className="text-slate-300 mb-6">
-            Promoting marine wildlife protection and ocean conservation awareness.
-          </p>
-
-          <Link
-            href="https://marineanimalcare.org"
-            className="bg-cyan-400 text-black px-6 py-3 rounded-lg font-medium hover:bg-cyan-300 transition"
-          >
-            Visit Initiative
-          </Link>
-
-        </div>
-
+      <section className="graticule bg-navy-950 text-fog-50">
+        <Reveal>
+          <div className="mx-auto max-w-3xl px-5 py-20 text-center">
+            <h2 className="display text-[clamp(2.4rem,7vw,4.5rem)]">Work with me</h2>
+            <p className="mx-auto mt-4 max-w-md text-lg text-navy-300">Shipping, press, conservation or community enquiries are welcome.</p>
+            <div className="mt-8"><Button href="/contact">Send a message</Button></div>
+          </div>
+        </Reveal>
       </section>
-
     </main>
   );
 }
